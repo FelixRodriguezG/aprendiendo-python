@@ -107,13 +107,39 @@ class Point:
         self.y = y
 
     def distance_to(self, other_point):
-        return ((self.x - other_point.x) ** 2 + (self.y - other_point.y) ** 2) ** 0.5  
+        return ((self.x - other_point.x) ** 2 + (self.y - other_point.y) ** 2) ** 0.5  # Fórmula de distancia euclidiana 
+
 point1 = Point(2, 3)
 point2 = Point(5, 7)
 print(point1.distance_to(point2))  # Debería imprimir la distancia entre point1 y point2
 
 # 9. Crea una clase "Employee" que tenga propiedades como "name", "hourly_wage" (pago por hora) y "hours_worked". Añade un método que calcule el pago total basado en las horas trabajadas y el salario por hora.
 
+class Employee:
+    def __init__(self, name, hourly_wage, hours_worked):
+        self.name = name
+        self.hourly_wage = hourly_wage
+        self.hours_worked = hours_worked
+        
+    def calculate_pay(self):
+        return self.hourly_wage * self.hours_worked
 
+employee1 = Employee("Luis", 15, 40)
+print(employee1.calculate_pay())  # Debería imprimir 600
 
 # 10. Crea una clase "Store" que tenga una propiedad "inventory" (una lista de productos). Añade un método para agregar un producto al inventario y otro para mostrar todos los productos disponibles.
+class Store:
+    def __init__ (self):
+        self.inventory = []  # lista de productos
+        
+    def add_product(self, product):
+        self.inventory.append(product)
+        
+    def show_inventory(self):
+        for product in self.inventory:
+            print(product)
+
+store = Store()
+store.add_product("Manzanas")
+store.add_product("Naranjas")
+store.show_inventory()  # Debería imprimir "Manzanas" y "Naranjas"  
